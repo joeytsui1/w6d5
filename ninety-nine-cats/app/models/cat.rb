@@ -13,17 +13,17 @@
 #
 require "date"
 class Cat < ApplicationRecord
-    CAT_COLOR = [:white, :black, :gray, :orange, :blue]
-    SEX = [:M, :F]
-    validates :id, :birth_date, :color, :name, :sex, presence: true
+    CAT_COLOR = ['white', 'black', 'gray', 'orange', 'blue']
+    SEX = ['M', 'F', 'f', 'm']
+    validates :birth_date, :color, :name, :sex, presence: true
     validate :inclusion, :birth_date_cannot_be_future
 
     def inclusion 
-        if !CAT_COLOR.include(color)
+        if !Cat::CAT_COLOR.include?(color)
             errors.add(:color, "Not possible")
         end
 
-        if !SEX.include(sex.upcase)
+        if !Cat::SEX.include?(sex)
             errors.add(:sex, "Not a real a gender")
         end
     end
