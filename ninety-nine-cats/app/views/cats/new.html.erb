@@ -1,0 +1,9 @@
+<h1> Create new cat</h1>
+<!-- action: url to which we want to send data -->
+<!-- method: http method that we want to use  -->
+
+<!-- THIS ACN ONLY BE PATCH OR POST -->
+<form action="<%= cats_url %>" method="post"> 
+    <!-- USER A HIDDEN INPUT TO CHANGE THE METHOD TO PATCH -->
+    <%= render 'cat', cat: @cat, type: :post%>
+</form>

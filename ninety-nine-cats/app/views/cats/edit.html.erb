@@ -1,0 +1,10 @@
+<h1> Editting cat</h1>
+<!-- action: url to which we want to send data -->
+<!-- method: http method that we want to use  -->
+
+<!-- THIS ACN ONLY BE PATCH OR POST -->
+<form action="<%= cat_url(@cat) %>" method="post"> 
+    <!-- USER A HIDDEN INPUT TO CHANGE THE METHOD TO PATCH -->
+    <input type="hidden" name="_method" value="patch">
+    <%= render 'cat', cat: @cat, type: :patch%>
+</form>
