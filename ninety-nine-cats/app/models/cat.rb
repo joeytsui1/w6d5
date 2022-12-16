@@ -50,5 +50,5 @@ class Cat < ApplicationRecord
         age = Date.today.year - birth_date.year
     end
 
-    
+
 end

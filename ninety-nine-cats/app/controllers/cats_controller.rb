@@ -5,7 +5,13 @@ class CatsController < ApplicationController
     end
 
     def show
-
+        @cat = Cat.find(params[:id])
+        
+        if @cat
+            render :show
+        else 
+            redirect_to cats_url
+        end
     end
 
     def new
