@@ -21,10 +21,15 @@ class CatsController < ApplicationController
 
     def create
         @cat = Cat.new(cat_params)
+
+        if @cat.color == @cat.color.downcase
+            @cat.color = @cat.color.capitalize!
+        end
+
         if @cat.save
             redirect_to cat_url(@cat)
         else
-            render json: @cat.errors.full_messages, status: 422
+            render :new
         end
     end
 
@@ -36,10 +41,12 @@ class CatsController < ApplicationController
 
     def update
         @cat = Cat.find(params[:id])
+
         if @cat.update(cat_params)
+
             redirect_to cat_url(@cat)
         else
-            render json: @cat.errors.full_messages, status: 422
+            render :edit
         end
     end
 

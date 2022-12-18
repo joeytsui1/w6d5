@@ -1,34 +1,16 @@
 
-<% if type == :post || type == :patch%>
-    <!-- USER A HIDDEN INPUT TO CHANGE THE METHOD TO PATCH -->
-    <label for="name"> Name: 
-    <input id="name" type="text" name="cat[name]" value= "<%= @cat.name %>"></label>
+<ul>
+    <li><%= cat.name %></li>
+    <li><%= cat.sex %></li>
+    <li><%= cat.birth_date %></li>
+    <li><%= cat.color %></li>
     <br/>
-    <label for="color"> Color: 
-    <input id="color" type="text" name="cat[color]" value= "<%= @cat.color %>"></label>
+</ul>
+    <% if type == :show %>
+        <a href="<%= cats_url %>">Cat Index</a></li>
+        <br>
+        <a href="<%= cat_url(cat) %>/edit">Edit Cat</a></li>
+    <% else %>
+        <a href="<%= cat_url(cat) %>"><%= "#{cat.name}'s Index"%></a></li>
+    <% end %>
     <br/>
-    <label for="birth_date"> Birth date: 
-    <input id="birth_date" type="text" name="cat[birth_date]" value= "<%= @cat.birth_date %>"></label>
-    <br/>
-    <label for="sex"> Sex: 
-    <input id="sex" type="text" name="cat[sex]" value= "<%= @cat.sex %>"></label>
-    <!-- THIS POPULATES THE INPUT WITH THE CURRENT USERNAME -->
-    <br/>
-    <input type="submit" value="Submit">
-</form>
-
-<% else %>
-    <ul>
-        <li><%= cat.name %></li>
-        <li><%= cat.sex %></li>
-        <li><%= cat.birth_date %></li>
-         <li><%= cat.color %></li>
-
-        <% if type == :show %>
-            <li><a href="<%= cats_url %>">Cat Index</a></li>
-            <li><a href="<%= cat_url(cat) %>/edit">Edit Cat</a></li>
-        <% else %>
-            <li><a href="<%= cat_url(cat) %>">Cat's Index</a></li>
-        <% end %>
-    </ul>
-<% end %>

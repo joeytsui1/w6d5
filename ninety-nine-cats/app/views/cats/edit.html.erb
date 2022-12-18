@@ -6,5 +6,5 @@
 <form action="<%= cat_url(@cat) %>" method="post"> 
     <!-- USER A HIDDEN INPUT TO CHANGE THE METHOD TO PATCH -->
     <input type="hidden" name="_method" value="patch">
-    <%= render 'cat', cat: @cat, type: :patch%>
+    <%= render 'form', cat: @cat, type: :patch%>
 </form>

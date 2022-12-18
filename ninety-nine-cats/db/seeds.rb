@@ -9,10 +9,14 @@
 ActiveRecord::Base.transaction do
     Cat.delete_all
 
-    george = Cat.create!(name: "George", color: "white", sex: "F", birth_date: "2020/12/3")
-    joey = Cat.create!(name: "Joey", color: "black", sex: "M", birth_date: "1998/10/10")
-    kevin = Cat.create!(name: "Kevin", color: "blue", sex: "M", birth_date: "1997/02/25")
-    wilson = Cat.create!(name: "Wilson", color: "blue", sex: "F", birth_date: "1997/12/3")
-    manny = Cat.create!(name: "Manny", color: "white", sex: "M", birth_date: "2019/12/3")
+    puts "Resetting primary keys..."
+    ApplicationRecord.connection.reset_pk_sequence!("cats")
+
+
+    george = Cat.create!(name: "George", color: "White", sex: "F", birth_date: "2020/12/3")
+    joey = Cat.create!(name: "Joey", color: "Black", sex: "M", birth_date: "1998/10/10")
+    kevin = Cat.create!(name: "Kevin", color: "Blue", sex: "M", birth_date: "1997/02/25")
+    wilson = Cat.create!(name: "Wilson", color: "Blue", sex: "F", birth_date: "1997/12/3")
+    manny = Cat.create!(name: "Manny", color: "White", sex: "M", birth_date: "2019/12/3")
 
 end

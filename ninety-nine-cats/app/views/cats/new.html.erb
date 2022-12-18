@@ -5,5 +5,5 @@
 <!-- THIS ACN ONLY BE PATCH OR POST -->
 <form action="<%= cats_url %>" method="post"> 
     <!-- USER A HIDDEN INPUT TO CHANGE THE METHOD TO PATCH -->
-    <%= render 'cat', cat: @cat, type: :post%>
+    <%= render 'form', cat: @cat, type: :post%>
 </form>

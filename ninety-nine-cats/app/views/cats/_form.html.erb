@@ -1,0 +1,20 @@
+
+<% if type == :post || type == :patch %>
+    <label for="name"> Name: 
+    <input id="name" type="text" name="cat[name]" value= "<%= @cat.name %>"></label>
+    <br/>
+    <label for="color"> Color: 
+    <input id="color" type="text" name="cat[color]" value= "<%= @cat.color %>"></label>
+    <br/>
+    <label for="birth_date"> Birth date: 
+    <input id="birth_date" type="text" name="cat[birth_date]" value= "<%= @cat.birth_date %>"></label>
+    <br/>
+    <span>Select a gender:</span>    
+    <select name="cat[sex]" >
+        <option value= "<%= @cat.sex %>"><%= cat.sex ? "#{@cat.sex}" : "-- Please Select --"  %> </option>
+        <option value="M">M</option>
+        <option value="F">F</option>
+    </select>
+    <br/>
+    <input type="submit" value=<%= type == :post ? "Create Cat" : "Update Cat "%>>
+<% end %>

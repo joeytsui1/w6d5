@@ -19,7 +19,7 @@ class Cat < ApplicationRecord
     validate :inclusion, :birth_date_cannot_be_future
 
     def inclusion 
-        if !Cat::CAT_COLOR.include?(color)
+        if !Cat::CAT_COLOR.include?(color.downcase)
             errors.add(:color, "Not possible")
         end
 
